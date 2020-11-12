@@ -1,0 +1,1 @@
+The purpose of this project is to implement Symfony workers for GFG Seller Center which should be able to handle the workload from Amazon SQS queue. The new Symfony workers will replace the currently existing Gearman workers framework. 
