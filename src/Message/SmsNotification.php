@@ -15,4 +15,9 @@ class SmsNotification
     {
         return $this->content;
     }
+
+    public function setContent($content): void
+    {
+        $this->content = $content;
+    }
 }

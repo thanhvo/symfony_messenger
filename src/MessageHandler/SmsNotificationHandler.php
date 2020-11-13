@@ -10,5 +10,6 @@ class SmsNotificationHandler implements MessageHandlerInterface
     public function __invoke(SmsNotification $message)
     {
         // ... do some work - like sending an SMS message!
+        dump($message);
     }
 }
