@@ -36,7 +36,7 @@ class MessageDispatcherCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $message = new SmsNotification('The second message');
+        $message = new SmsNotification('A message');
         $message->setContent(date('Y-m-d H:i:s') . ' here is my content');
         $this->messageBus->dispatch($message);
 
