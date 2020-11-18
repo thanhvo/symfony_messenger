@@ -10,4 +10,5 @@ RUN mkdir /home/gfg && cd /home/gfg
 #RUN git clone git@github.com:GFG/symfony_workers.git
 COPY . /home/gfg/symfony_workers
 
+RUN cd /home/gfg/symfony_workers && composer update
 RUN cd /home/gfg/symfony_workers && composer dump-autoload --optimize --no-dev --classmap-authoritative
