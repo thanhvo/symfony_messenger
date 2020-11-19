@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e3e9926cf3a50978e1c8b1670b6f879a",
+    "content-hash": "21351db865f99c89451caa2c9d2bd6ec",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.161.0",
+            "version": "3.162.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "93f237f55463035896dbe298c9100b2438a87193"
+                "reference": "64b0468417c4a84ff5cc51a69cf2ff9d899c2e8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/93f237f55463035896dbe298c9100b2438a87193",
-                "reference": "93f237f55463035896dbe298c9100b2438a87193",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/64b0468417c4a84ff5cc51a69cf2ff9d899c2e8e",
+                "reference": "64b0468417c4a84ff5cc51a69cf2ff9d899c2e8e",
                 "shasum": ""
             },
             "require": {
@@ -89,7 +89,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-11-12T19:25:24+00:00"
+            "time": "2020-11-17T19:12:26+00:00"
         },
         {
             "name": "brick/math",
@@ -1499,71 +1499,6 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
-        },
-        {
-            "name": "sroze/messenger-enqueue-transport",
-            "version": "0.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sroze/messenger-enqueue-transport.git",
-                "reference": "7d57495367e5691d20fb57042d347d954c684969"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sroze/messenger-enqueue-transport/zipball/7d57495367e5691d20fb57042d347d954c684969",
-                "reference": "7d57495367e5691d20fb57042d347d954c684969",
-                "shasum": ""
-            },
-            "require": {
-                "enqueue/amqp-tools": "^0.10",
-                "enqueue/enqueue-bundle": "^0.10",
-                "symfony/messenger": "^4.3|^5",
-                "symfony/options-resolver": "^3.4|^4.2|^5"
-            },
-            "replace": {
-                "enqueue/messenger-adapter": ">0.2.2"
-            },
-            "require-dev": {
-                "phpspec/prophecy": "^1.8.0",
-                "phpunit/phpunit": "^7.1",
-                "symfony/yaml": "^3.4|^4.1|^5"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Enqueue\\MessengerAdapter\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Samuel Roze",
-                    "email": "samuel.roze@gmail.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                }
-            ],
-            "description": "Enqueue adapter for Symfony Messenger component",
-            "homepage": "http://symfony.com",
-            "keywords": [
-                "Messenger",
-                "enqueue",
-                "symfony"
-            ],
-            "time": "2020-02-06T15:12:32+00:00"
         },
         {
             "name": "symfony/amqp-messenger",

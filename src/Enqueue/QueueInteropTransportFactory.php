@@ -11,8 +11,8 @@
 
 namespace App\Enqueue;
 
-use Enqueue\Sqs\SqsConnectionFactory;
 use Interop\Queue\Context;
+use Enqueue\Sqs\SqsConnectionFactory;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Messenger\Transport\Serialization\SerializerInterface;
 use Symfony\Component\Messenger\Transport\TransportFactoryInterface;
@@ -70,15 +70,14 @@ class QueueInteropTransportFactory implements TransportFactoryInterface
     private function parseDsn(string $dsn): array
     {
         $parsedDsn = parse_url($dsn);
-        //$enqueueContextName = $parsedDsn['host'];
 
-        $amqpOptions = array();
+        $options = array();
         if (isset($parsedDsn['query'])) {
             parse_str($parsedDsn['query'], $parsedQuery);
             $parsedQuery = array_map(function ($e) {
                 return is_numeric($e) ? (int) $e : $e;
             }, $parsedQuery);
-            $amqpOptions = array_replace_recursive($amqpOptions, $parsedQuery);
+            $options = array_replace_recursive($options, $parsedQuery);
         }
 
         $context = $this->createSqsContext();
@@ -87,20 +86,20 @@ class QueueInteropTransportFactory implements TransportFactoryInterface
         }
 
         return array(
-            new AmqpContextManager($context),
-            $amqpOptions,
+            new SqsContextManager($context),
+            $options,
         );
     }
 
     private function createSqsContext() {
-        $factory = new SqsConnectionFactory([
+        $config = [
             'key' => 'AKIAW5W2MYFDWBDIFHV2',
             'secret' => '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',
             'region' => 'eu-central-1',
-        ]);
-
+            'queue_owner_aws_account_id' => '476125643079',
+        ];
+        $factory = new SqsConnectionFactory($config);
         $context = $factory->createContext();
-
         return $context;
     }
 }
