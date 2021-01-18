@@ -2,7 +2,7 @@
 
 namespace App\Command;
 
-use App\Message\SmsNotification;
+use App\Message\Message;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -36,7 +36,7 @@ class MessageDispatcherCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $message = new SmsNotification('A message');
+        $message = new Message('A message');
         $message->setContent(date('Y-m-d H:i:s') . ' here is my content');
         $this->messageBus->dispatch($message);
 

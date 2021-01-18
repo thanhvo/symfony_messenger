@@ -2,7 +2,7 @@
 
 namespace App\Message;
 
-class SmsNotification
+class Message
 {
     private $content;
 
