@@ -6,7 +6,7 @@
         "php": ">=7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "bref/bref": "^1.1",
+        "bref/bref": "^1.1.4",
         "symfony/amazon-sqs-messenger": "5.1.*",
         "symfony/console": "5.1.*",
         "symfony/dependency-injection": "5.1.*",

@@ -5,15 +5,16 @@ namespace App\Consumer;
 use Bref\Context\Context;
 use Bref\Event\Sqs\SqsEvent;
 use Bref\Event\Sqs\SqsHandler;
-use Bref\Symfony\Messenger\Service\BusDriver;
+use Bref\Logger\StderrLogger;
 
 class SqsConsumer extends SqsHandler
 {
     public function handleSqs(SqsEvent $event, Context $context): void
     {
-        echo "Calling handleSqs!";
+        $log = new StderrLogger();
+        $log->warning('Calling handleSqs!');
         foreach ($event->getRecords() as $record) {
-            dump($record->getBody());
+            $log->warning($record->getBody());
         }
     }
 }

@@ -195,7 +195,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/symfony-messenger/dev/1611558210455-2021-01-25T07:03:30.455Z/symfony-messenger.zip"
+                "S3Key": "serverless/symfony-messenger/dev/1611563805712-2021-01-25T08:36:45.712Z/symfony-messenger.zip"
               },
               "Handler": "bin/consumer.php",
               "Runtime": "provided.al2",
@@ -218,14 +218,14 @@
               "WorkerLogGroup"
             ]
           },
-          "WorkerLambdaVersionPszWU9sfU1NFCcPUy0uw0tbk0hgyzgWr8g0BJ6Pj8jU": {
+          "WorkerLambdaVersionfkJUMhPDhEhSiKeb9o3yKHRvreSnkkVNccM575lhE": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "WorkerLambdaFunction"
               },
-              "CodeSha256": "pR7TUplKoxIbJGHvLIwAiHP4uazJUuTVg+cOfRaikDk=",
+              "CodeSha256": "bqU7MuUOx/WrZfWpTR1yphqgFGbdP9M57MlQ/naNYw0=",
               "Description": "A simple application to consume the messages from SQS queues."
             }
           },
@@ -236,7 +236,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/symfony-messenger/dev/1611558210455-2021-01-25T07:03:30.455Z/symfony-messenger.zip"
+                "S3Key": "serverless/symfony-messenger/dev/1611563805712-2021-01-25T08:36:45.712Z/symfony-messenger.zip"
               },
               "Handler": "bin/producer.php",
               "Runtime": "provided.al2",
@@ -259,14 +259,14 @@
               "ProducerLogGroup"
             ]
           },
-          "ProducerLambdaVersionH6VWogkFwXDBVs2y2wopJIFvQCKsaRdaO83VRpbDJ8": {
+          "ProducerLambdaVersionX3sr7epZf0pmI0k04ebohFnzuS8Yu0Pukr5C9wuDc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ProducerLambdaFunction"
               },
-              "CodeSha256": "pR7TUplKoxIbJGHvLIwAiHP4uazJUuTVg+cOfRaikDk=",
+              "CodeSha256": "bqU7MuUOx/WrZfWpTR1yphqgFGbdP9M57MlQ/naNYw0=",
               "Description": "A simple application to populate the messages to SQS queues."
             }
           },
@@ -298,13 +298,13 @@
           "WorkerLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "WorkerLambdaVersionPszWU9sfU1NFCcPUy0uw0tbk0hgyzgWr8g0BJ6Pj8jU"
+              "Ref": "WorkerLambdaVersionfkJUMhPDhEhSiKeb9o3yKHRvreSnkkVNccM575lhE"
             }
           },
           "ProducerLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ProducerLambdaVersionH6VWogkFwXDBVs2y2wopJIFvQCKsaRdaO83VRpbDJ8"
+              "Ref": "ProducerLambdaVersionX3sr7epZf0pmI0k04ebohFnzuS8Yu0Pukr5C9wuDc"
             }
           }
         }
@@ -422,7 +422,7 @@
         "memory": 1024,
         "runtime": "provided.al2",
         "vpc": {},
-        "versionLogicalId": "WorkerLambdaVersionPszWU9sfU1NFCcPUy0uw0tbk0hgyzgWr8g0BJ6Pj8jU"
+        "versionLogicalId": "WorkerLambdaVersionfkJUMhPDhEhSiKeb9o3yKHRvreSnkkVNccM575lhE"
       },
       "producer": {
         "handler": "bin/producer.php",
@@ -437,7 +437,7 @@
         "memory": 1024,
         "runtime": "provided.al2",
         "vpc": {},
-        "versionLogicalId": "ProducerLambdaVersionH6VWogkFwXDBVs2y2wopJIFvQCKsaRdaO83VRpbDJ8"
+        "versionLogicalId": "ProducerLambdaVersionX3sr7epZf0pmI0k04ebohFnzuS8Yu0Pukr5C9wuDc"
       }
     },
     "configValidationMode": "warn",
@@ -462,7 +462,7 @@
     "artifact": "/Users/thanhvo/Workspace/GFG/Research/symfony_workers/.serverless/symfony-messenger.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/symfony-messenger/dev/1611558210455-2021-01-25T07:03:30.455Z",
+    "artifactDirectoryName": "serverless/symfony-messenger/dev/1611563805712-2021-01-25T08:36:45.712Z",
     "artifact": "symfony-messenger.zip"
   }
 }
