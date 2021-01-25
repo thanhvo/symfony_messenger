@@ -1,6 +1,6 @@
 <?php
 
-namespace App\MessageHandler;
+namespace App\Consumer;
 
 use App\Message\Message;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;

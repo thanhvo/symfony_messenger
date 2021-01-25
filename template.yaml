@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  Console:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: 'symfony-messenger'
+      CodeUri: .
+      Handler: src/MessageHandler/MessageHandler.php
+      Timeout: 120 # in seconds
+      Runtime: provided.al2
+      Layers:
+        - 'arn:aws:lambda:eu-central-1:209497400698:layer:php-80:7' # PHP
+        - 'arn:aws:lambda:eu-central-1:209497400698:layer:console:32' # The "console" layer

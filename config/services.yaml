@@ -21,5 +21,13 @@ services:
             - '../src/Kernel.php'
             - '../src/Tests/'
 
+    producer:
+        class:  'App\Producer\SqsProducer'
+        public: true
+
+    consumer:
+        class: 'App\Consumer\SqsConsumer'
+        public: true
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
