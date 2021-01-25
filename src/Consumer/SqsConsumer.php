@@ -9,13 +9,13 @@ use Bref\Symfony\Messenger\Service\BusDriver;
 
 class SqsConsumer extends SqsHandler
 {
-
-    public function __construct() {}
-
     public function handleSqs(SqsEvent $event, Context $context): void
     {
+        echo "Calling handleSqs!";
         foreach ($event->getRecords() as $record) {
             dump($record->getBody());
         }
     }
 }
+
+return new SqsConsumer();
