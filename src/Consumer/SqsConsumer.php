@@ -12,9 +12,9 @@ class SqsConsumer extends SqsHandler
     public function handleSqs(SqsEvent $event, Context $context): void
     {
         $log = new StderrLogger();
-        $log->warning('Calling handleSqs!');
+        $log->info('Calling handleSqs!');
         foreach ($event->getRecords() as $record) {
-            $log->warning($record->getBody());
+            $log->info($record->getBody());
         }
     }
 }

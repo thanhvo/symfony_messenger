@@ -1,5 +1,7 @@
 .idea
 symfony.lock
+.serverless
+composer.lock
 
 ###> symfony/framework-bundle ###
 /.env.local
