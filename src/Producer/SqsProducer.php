@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Command;
+namespace App\Producer;
 
-use App\Message\SmsNotification;
+use App\Message\Message;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -10,10 +10,10 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Messenger\MessageBusInterface;
 
 /**
- * Class MessageDispatcherCommand
+ * Class SqsProducer
  * @package App\Command
  */
-class MessageDispatcherCommand extends Command
+class SqsProducer extends Command
 {
     protected static $defaultName = 'app:message:dispatcher';
 
@@ -23,7 +23,7 @@ class MessageDispatcherCommand extends Command
     private $messageBus;
 
     /**
-     * MessageDispatcherCommand constructor.
+     * SqsProducer constructor.
      */
     public function __construct(MessageBusInterface $messageBus)
     {
@@ -36,7 +36,7 @@ class MessageDispatcherCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $message = new SmsNotification('A message');
+        $message = new Message('A message');
         $message->setContent(date('Y-m-d H:i:s') . ' here is my content');
         $this->messageBus->dispatch($message);
 

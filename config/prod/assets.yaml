@@ -1,0 +1,4 @@
+framework:
+  assets:
+    base\_urls:
+      - 'https://gfg-symfony-bucket.s3.amazonaws.com/'

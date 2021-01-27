@@ -35,4 +35,24 @@ class Kernel extends BaseKernel
             (require $path)($routes->withPath($path), $this);
         }
     }
+
+    public function getCacheDir()
+    {
+        // When on the lambda only /tmp is writable
+        if (getenv('LAMBDA_TASK_ROOT') !== false) {
+            return '/tmp/cache/'.$this->environment;
+        }
+
+        return $this->getProjectDir().'/var/cache/'.$this->environment;
+    }
+
+    public function getLogDir()
+    {
+        // When on the lambda only /tmp is writable
+        if (getenv('LAMBDA_TASK_ROOT') !== false) {
+            return '/tmp/log/'.$this->environment;
+        }
+
+        return $this->getProjectDir().'/var/log/'.$this->environment;
+    }
 }

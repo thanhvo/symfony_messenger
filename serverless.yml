@@ -1,0 +1,35 @@
+service: symfony-messenger
+useDotenv: true
+
+provider:
+    name: aws
+    region: eu-central-1
+    runtime: provided.al2
+    stage: dev
+    environment:
+    apiGateway:
+        shouldStartNameWithService: true
+
+plugins:
+    - ./vendor/bref/bref
+
+functions:
+    worker:
+        handler: bin/consumer.php
+        events:
+            - sqs:
+                arn: arn:aws:sqs:eu-central-1:476125643079:symfony_workers_queue
+                batchSize: 10
+                maximumBatchingWindow: 60
+        description: 'A simple application to consume the messages from SQS queues.'
+        timeout: 30
+        layers:
+            - ${bref:layer.php-80}
+            - ${bref:layer.console}
+    producer:
+        handler: bin/producer.php
+        description: 'A simple application to populate the messages to SQS queues.'
+        timeout: 120
+        layers:
+            - ${bref:layer.php-80}
+            - ${bref:layer.console}

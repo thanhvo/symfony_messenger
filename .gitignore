@@ -1,3 +1,7 @@
+.idea
+symfony.lock
+.serverless
+composer.lock
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -8,4 +12,3 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
-.idea
