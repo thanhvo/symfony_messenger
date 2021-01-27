@@ -1,22 +1,18 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace App\Consumer;
 
-use Bref\Context\Context;
-use Bref\Event\Sqs\SqsEvent;
-use Bref\Event\Sqs\SqsHandler;
-use Bref\Logger\StderrLogger;
+use App\Message\Message;
+use Bref\Logger\StderrLogger as StderrLogger;
+use Psr\Log\LogLevel;
+use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
-class SqsConsumer extends SqsHandler
+class SqsConsumer implements MessageHandlerInterface
 {
-    public function handleSqs(SqsEvent $event, Context $context): void
+    public function __invoke(Message $message)
     {
-        $log = new StderrLogger();
-        $log->info('Calling handleSqs!');
-        foreach ($event->getRecords() as $record) {
-            $log->info($record->getBody());
-        }
+        $log = new StderrLogger(LogLevel::DEBUG);
+        $log->debug('Message from SQS queue: '.$message->getContent());
+        dump($message);
     }
 }
-
-return new SqsConsumer();

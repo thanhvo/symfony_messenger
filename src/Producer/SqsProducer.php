@@ -3,16 +3,20 @@
 namespace App\Producer;
 
 use App\Message\Message;
-use Bref\Context\Context;
-use Bref\Event\Handler;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Messenger\MessageBusInterface;
 
 /**
  * Class SqsProducer
- * @package App\Producer
+ * @package App\Command
  */
-class SqsProducer implements Handler
+class SqsProducer extends Command
 {
+    protected static $defaultName = 'app:message:dispatcher';
+
     /**
      * @var MessageBusInterface
      */
@@ -24,14 +28,20 @@ class SqsProducer implements Handler
     public function __construct(MessageBusInterface $messageBus)
     {
         $this->messageBus = $messageBus;
+        $this->setDescription('Dispatch a message to the configured queuing system');
+        parent::__construct(self::$defaultName);
     }
 
-    public function handle($event, Context $context)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $io = new SymfonyStyle($input, $output);
+
         $message = new Message('A message');
         $message->setContent(date('Y-m-d H:i:s') . ' here is my content');
         $this->messageBus->dispatch($message);
-        echo "The message is dipatched successfully";
+
+        $io->success('Message dispatched successfully!');
+
         return 0;
     }
 }

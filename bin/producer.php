@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-use Bref\Symfony\Messenger\Service\Sqs\SqsConsumer;
 use Symfony\Component\Dotenv\Dotenv;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Input\ArgvInput;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
@@ -11,6 +12,6 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 
 $kernel = new \App\Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
 $kernel->boot();
-
-// Return the Bref consumer service
-return $kernel->getContainer()->get('producer');
+$application = new Application($kernel);
+$input = new ArgvInput(['debug:messenger','app:message:dispatcher']);
+$application->run($input);
